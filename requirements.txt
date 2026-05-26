@@ -11,3 +11,4 @@ pypdf
 gunicorn
 python-docx
 pytesseract
+fpdf2

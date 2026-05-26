@@ -16,8 +16,8 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Pre-download EasyOCR models (English + Tagalog) during build to avoid slow startup
-RUN python -c "import easyocr; reader = easyocr.Reader(['en', 'tl'])"
+# Pre-download EasyOCR model (English only) during build to avoid slow startup
+RUN python -c "import easyocr; reader = easyocr.Reader(['en'])"
 
 # Copy the rest of the code
 COPY . .
@@ -26,4 +26,4 @@ COPY . .
 ENV PORT 8080
 
 # Run the web service on container startup.
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 app:app
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 4 --timeout 0 app:app

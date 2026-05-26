@@ -20,7 +20,7 @@ CORS(app, resources={r"/*": {
     ]
 }})
 
-# Initialize EasyOCR
+# Initialize EasyOCR (English only to save RAM on 512MB instance)
 print("🚀 Initializing EasyOCR Reader...")
 reader = easyocr.Reader(['en'], gpu=False)
 
