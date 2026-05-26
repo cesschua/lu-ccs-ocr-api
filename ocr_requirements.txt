@@ -1,0 +1,6 @@
+flask
+flask-cors
+easyocr
+pillow
+fpdf2
+pypdf
