@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: lu-ccs-ocr-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+    plan: free
+    healthCheckPath: /health
